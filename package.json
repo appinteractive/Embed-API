@@ -1,5 +1,5 @@
 {
-  "name": "nitro-embed",
+  "name": "embed-api",
   "version": "0.0.1",
   "description": "API Service for fetching URL Information like images, icons, descriptions etc. thourgh OpenGraph, oEmbed and other standards.",
   "main": "src/index.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Human-Connection/Nitro-Embed.git"
+    "url": "git+https://github.com/appinteractive/Embed-API.git"
   },
   "keywords": [
     "pengraph",
@@ -19,36 +19,36 @@
   "author": "Grzegorz Leoniec <greg@app-interactive.de> (http://app-interactive.de)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Human-Connection/Nitro-Embed/issues"
+    "url": "https://github.com/appinteractive/Embed-API/issues"
   },
-  "homepage": "https://github.com/Human-Connection/Nitro-Embed#readme",
+  "homepage": "https://github.com/appinteractive/Embed-API#readme",
   "dependencies": {
-    "@metascraper/helpers": "^4.8.5",
-    "apollo-server": "^2.6.7",
+    "@metascraper/helpers": "^5.7.6",
+    "apollo-server": "^2.9.6",
     "got": "^9.6.0",
-    "graphql": "^14.0.2",
-    "lodash": "^4.17.11",
-    "metascraper": "^4.10.3",
-    "metascraper-audio": "^5.5.0",
-    "metascraper-author": "^4.8.5",
+    "graphql": "^14.5.8",
+    "lodash": "^4.17.15",
+    "metascraper": "^5.7.6",
+    "metascraper-audio": "^5.7.6",
+    "metascraper-author": "^5.7.6",
     "metascraper-clearbit-logo": "^5.3.0",
-    "metascraper-date": "^4.8.5",
-    "metascraper-description": "^5.5.0",
-    "metascraper-image": "^4.8.5",
-    "metascraper-lang": "^4.8.5",
-    "metascraper-lang-detector": "^4.8.5",
-    "metascraper-logo": "^5.5.0",
-    "metascraper-logo-favicon": "^4.8.5",
-    "metascraper-publisher": "^4.8.5",
-    "metascraper-soundcloud": "^5.5.3",
-    "metascraper-title": "^4.8.5",
-    "metascraper-url": "^5.5.0",
-    "metascraper-video": "^4.8.5",
-    "metascraper-youtube": "^4.8.5",
+    "metascraper-date": "^5.7.6",
+    "metascraper-description": "^5.7.6",
+    "metascraper-image": "^5.7.6",
+    "metascraper-lang": "^5.7.6",
+    "metascraper-lang-detector": "^4.10.2",
+    "metascraper-logo": "^5.7.6",
+    "metascraper-logo-favicon": "^5.7.6",
+    "metascraper-publisher": "^5.7.6",
+    "metascraper-soundcloud": "^5.7.6",
+    "metascraper-title": "^5.7.6",
+    "metascraper-url": "^5.7.6",
+    "metascraper-video": "^5.7.6",
+    "metascraper-youtube": "^5.7.6",
     "request": "^2.88.0",
-    "request-promise-native": "^1.0.5"
+    "request-promise-native": "^1.0.7"
   },
   "devDependencies": {
-    "nodemon": "^1.18.9"
+    "nodemon": "^1.19.3"
   }
 }
