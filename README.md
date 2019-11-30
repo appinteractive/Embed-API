@@ -19,19 +19,19 @@ API Service for fetching URL Information like images, icons, descriptions etc. t
 ## Install and start development server
 
 Install dependencies
-```shell
+```sh
 yarn install
 ```
 
 Start development server
-```shell
+```sh
 yarn dev
 ```
 
 ## Example Request
 Use the following request by posting it against the endpoint or open the url the `yarn dev` script did gave you and fire it there to get your first result.
 
-```gql
+```grapql
 {
   embed(url: "https://human-connection.org") {
     video
