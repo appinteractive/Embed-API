@@ -31,7 +31,7 @@ yarn dev
 ## Example Request
 Use the following request by posting it against the endpoint or open the url the `yarn dev` script did gave you and fire it there to get your first result.
 
-```grapql
+```gql
 {
   embed(url: "https://human-connection.org") {
     video
