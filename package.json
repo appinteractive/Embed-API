@@ -1,11 +1,11 @@
 {
   "name": "embed-api",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "API Service for fetching URL Information like images, icons, descriptions etc. thourgh OpenGraph, oEmbed and other standards.",
   "main": "src/index.js",
   "scripts": {
-    "dev": "nodemon src/",
-    "start": "node src/",
+    "dev": "nodemon --exec babel-node src/",
+    "start": "babel-node src/",
     "test": "test"
   },
   "repository": {
@@ -23,8 +23,12 @@
   },
   "homepage": "https://github.com/appinteractive/Embed-API#readme",
   "dependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/node": "^7.6.3",
+    "@babel/preset-env": "^7.6.3",
     "@metascraper/helpers": "^5.7.6",
     "apollo-server": "^2.9.6",
+    "dotenv": "^8.2.0",
     "got": "^9.6.0",
     "graphql": "^14.5.8",
     "lodash": "^4.17.15",
@@ -39,14 +43,17 @@
     "metascraper-lang-detector": "^4.10.2",
     "metascraper-logo": "^5.7.6",
     "metascraper-logo-favicon": "^5.7.6",
+    "metascraper-media-provider": "^5.7.6",
     "metascraper-publisher": "^5.7.6",
     "metascraper-soundcloud": "^5.7.6",
     "metascraper-title": "^5.7.6",
     "metascraper-url": "^5.7.6",
     "metascraper-video": "^5.7.6",
     "metascraper-youtube": "^5.7.6",
+    "mkdirp": "^0.5.1",
     "request": "^2.88.0",
-    "request-promise-native": "^1.0.7"
+    "request-promise-native": "^1.0.7",
+    "sharp": "^0.23.1"
   },
   "devDependencies": {
     "nodemon": "^1.19.3"

@@ -1,3 +1,7 @@
+type Image {
+  url: String
+}
+
 type Embed {
   type: String
   title: String
@@ -6,11 +10,11 @@ type Embed {
   date: String
   description: String
   url: String
-  image: String
+  image(width: Int, height: Int): Image
   audio: String
   video: String
   lang: String
-  logo: String
+  logo(width: Int, height: Int): Image
   embed: String
   sources: [String]
 }

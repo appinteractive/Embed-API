@@ -14,7 +14,8 @@ const metascraper = require('metascraper')([
   require('metascraper-audio')(),
   require('metascraper-soundcloud')(),
   require('metascraper-video')(),
-  require('metascraper-youtube')()
+  require('metascraper-media-provider')()
+  // require('metascraper-youtube')()
 
   // require('./rules/metascraper-embed')()
 ])
@@ -114,6 +115,12 @@ const scraper = {
       output.embed = output.embed.replace('?feature=oembed', `?feature=oembed&start=${YouTubeStartParam}`)
       output.url += `&start=${YouTubeStartParam}`
     }
+    if (output.publisher === 'YouTube') {
+      output.embed = output.embed.replace('?feature-oembed', '?feature=oembed&autoplay=1')
+    }
+
+    // DTube?
+    // https://d.tube/#!/v/blockchaindeveloper81/QmTDuWfr7rYiLCC4ftQk17vzb55tH8nCWZ8xCWZAnqGqZM
 
     // write to cache
     cache[targetUrl] = output
