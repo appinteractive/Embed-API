@@ -34,19 +34,23 @@ Use the following request by posting it against the endpoint or open the url the
 ```grapql
 {
   embed(url: "https://human-connection.org") {
-    type
-    embed
+    video
     title
     description
+    image(width: 340) {
+      url
+    }
     author
-    publisher
-    url
+    type
     date
-    image
+    url
     audio
-    video
+    logo(height: 36) {
+      url
+    }
     lang
-    logo
+    publisher
+    embed
     sources
   }
 }
