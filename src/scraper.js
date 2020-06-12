@@ -22,8 +22,7 @@ const metascraper = require('metascraper')([
 const { ApolloError } = require('apollo-server')
 const parseUrl = require('url')
 
-const got = require('got')
-const request = require('request-promise-native')
+const fetch = require('node-fetch')
 const find = require('lodash/find')
 const isEmpty = require('lodash/isEmpty')
 const each = require('lodash/each')
@@ -36,8 +35,8 @@ let cache = {}
 
 let oEmbedProviders = []
 const getEmbedProviders = async () => {
-  let providers = await request('https://oembed.com/providers.json')
-  providers = JSON.parse(providers)
+  let providers = await fetch('https://oembed.com/providers.json')
+  providers = await providers.json()
   oEmbedProviders = providers
   return providers
 }
@@ -110,10 +109,10 @@ const scraper = {
     }
 
     // fix youtube start parameter
-    const YouTubeStartParam = url.query.t || url.query.start
-    if (output.publisher === 'YouTube' && YouTubeStartParam) {
-      output.embed = output.embed.replace('?feature=oembed', `?feature=oembed&start=${YouTubeStartParam}`)
-      output.url += `&start=${YouTubeStartParam}`
+    const youTubeStartParam = url.query.t || url.query.start
+    if (output.publisher === 'YouTube' && youTubeStartParam) {
+      output.embed = output.embed.replace('?feature=oembed', `?feature=oembed&start=${youTubeStartParam}`)
+      output.url += `&start=${youTubeStartParam}`
     }
     if (output.publisher === 'YouTube') {
       output.embed = output.embed.replace('?feature-oembed', '?feature=oembed&autoplay=1')
@@ -139,11 +138,11 @@ const scraper = {
 
     let data
     try {
-      data = await request(`${embedUrl}?url=${targetUrl}`)
-      data = JSON.parse(data)
+      data = await fetch(`${embedUrl}?url=${targetUrl}`)
+      data = await data.json()
     } catch (err) {
-      data = await request(`${embedUrl}?url=${targetUrl}&format=json`)
-      data = JSON.parse(data)
+      data = await fetch(`${embedUrl}?url=${targetUrl}&format=json`)
+      data = await data.json()
     }
     if (data) {
       let output = {
@@ -164,10 +163,10 @@ const scraper = {
     // const parsedURL = urlParser.parse(targetUrl)
     // console.log(parsedURL)
 
-    // get from cach
-
-    const { body: html, url } = await got(targetUrl)
-    const metadata = await metascraper({ html, url })
+    // get from cache
+    let html = await fetch(targetUrl)
+    html = await html.text()
+    const metadata = await metascraper({ html, url: targetUrl })
 
     metadata.sources = ['resource']
     metadata.type = 'link'

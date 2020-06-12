@@ -3,6 +3,8 @@ import scraper from './scraper.js'
 import typeDefs from './graphql-schema.js'
 import thumb from './thumb'
 
+const THUMBOR_URL = process.env.THUMBOR_URL || 'http://localhost:8888'
+
 async function getThumb(url, width, height) {
   const w = width > 0 ? width : 0
   const h = height > 0 ? height : 0
@@ -12,8 +14,7 @@ async function getThumb(url, width, height) {
   }
 
   // return await thumb(url, 300)
-
-  return `http://127.0.0.1:8081/${w}x${h}/center/middle/${url}`
+  return `${THUMBOR_URL}/unsafe/${w}x${h}/center/middle/${url}`
 }
 
 const resolvers = {
@@ -77,4 +78,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 server.listen({ port: 3050 }).then(({ url }) => {
   console.log(`🚀 Nitro Embed - Server is ready at ${url}`)
+  console.log(`THUMBOR_URL: ${THUMBOR_URL}`)
+  console.log(`THUMBOR_KEY (YES/NO): ${THUMBOR_KEY ? 'YES' : 'NO'}`)
 })
