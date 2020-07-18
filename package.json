@@ -27,7 +27,7 @@
     "apollo-server": "^2.9.6",
     "got": "^9.6.0",
     "graphql": "^14.5.8",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "metascraper": "^5.7.6",
     "metascraper-audio": "^5.7.6",
     "metascraper-author": "^5.7.6",
